@@ -21,7 +21,7 @@
 	<link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
 	<link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
 <link rel="stylesheet" href="css/rarsm-motion.css?v=20260821-motion-v5">
-	<link rel="stylesheet" href="css/rarsm.css?v=20260821-activities-mobile-v1">
+	<link rel="stylesheet" href="css/rarsm.css?v=20260909-activity-regions-v13">
 <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 
 	<!--[if lt IE 9]>
@@ -440,6 +440,20 @@
 										<p>Les fiches marquées « à confirmer » restent visibles afin de suivre leur prochaine édition sans les présenter comme définitivement annuelles.</p>
 									</div>
 								</div>
+								<section class="activities-region-browser" aria-labelledby="activities-region-title">
+									<div class="activities-region-heading">
+										<span class="activities-region-eyebrow">Explorer par région</span>
+										<h4 id="activities-region-title">Choisissez une zone géographique</h4>
+										<p id="activities-region-description">Affichez toutes les activités ou concentrez-vous sur une région.</p>
+									</div>
+									<div class="activities-region-filters" role="group" aria-label="Filtrer les activités par région">
+										<button class="activities-region-filter is-active" type="button" data-activity-region="all" aria-pressed="true"><span>Toutes</span><strong>0</strong></button>
+										<button class="activities-region-filter" type="button" data-activity-region="drc" aria-pressed="false"><span>RDC</span><strong>0</strong></button>
+										<button class="activities-region-filter" type="button" data-activity-region="africa" aria-pressed="false"><span>Afrique hors RDC</span><strong>0</strong></button>
+										<button class="activities-region-filter" type="button" data-activity-region="world" aria-pressed="false"><span>International et autres continents</span><strong>0</strong></button>
+									</div>
+									<p id="activities-region-summary" class="activities-region-summary" aria-live="polite"></p>
+								</section>
 								<div id="activities-event-list" class="activities-event-list" aria-live="polite"></div>
 							</div>
 						</div>
@@ -508,10 +522,10 @@
 
 
 	<script defer src="js/compressed.js?v=20260821-vendor-v2"></script>
-	<script defer src="js/rarsm-i18n.js?v=20260821-password-min-v1"></script>
+	<script defer src="js/rarsm-i18n.js?v=20260909-activity-regions-v2"></script>
 <script defer src="js/rarsm-motion.js?v=20260821-motion-v5"></script>
 	<script defer src="js/rarsm-ui.js?v=20260821-password-min-v1"></script>
-	<script defer src="js/activities-calendar.js?v=20260821-activities-i18n-v1"></script>
+	<script defer src="js/activities-calendar.js?v=20260909-regions-v5"></script>
 
 
 </body>

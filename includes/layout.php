@@ -299,7 +299,7 @@ function rarsm_page_head(string $title, string $description = '', string $bodyCl
     <link rel="apple-touch-icon" href="favicon.png?v=20260702-favicon">
     <link rel="stylesheet" href="css/site.css?v=20260814-theme-v1">
 <link rel="stylesheet" href="css/rarsm-motion.css?v=20260821-motion-v4">
-    <link rel="stylesheet" href="css/rarsm.css?v=20260814-security-v3">
+    <link rel="stylesheet" href="css/rarsm.css?v=20260831-organizer-logos-v12">
     <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 </head>
 <body class="{$safeBodyClass}">

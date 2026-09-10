@@ -549,7 +549,14 @@
 			{ selector: ".rarsm-user-menu-action-danger span:last-child", text: "Sign out" }
 		],
 		"index.html": [
-			{ selector: ".rarsm-mobile-buy-btn", text: "Shop" },
+			{ selector: ".rarsm-mobile-kicker", text: "Essential legal reference" },
+			{ selector: ".rarsm-mobile-hero-copy h1", text: "Congolese mining law, brought together in one book." },
+			{ selector: ".rarsm-mobile-lead", text: "A bilingual, structured compendium designed to help you quickly find the regulatory instruments governing the mining sector in the DRC." },
+			{ selector: ".rarsm-mobile-book-img", attr: { "alt": "RARSM book shown in 3D with its complete cover" } },
+			{ selector: ".rarsm-mobile-buy-btn", text: "Buy the book" },
+			{ selector: ".rarsm-mobile-discover-btn", text: "Discover the book" },
+			{ selector: ".rarsm-mobile-meta span:eq(0)", text: "French · English" },
+			{ selector: ".rarsm-mobile-meta span:eq(1)", text: "Mining sector · DRC" },
 			{ selector: ".hero-desktop .intro_layer.intro_feature_word p", text: "The legal reference for the mining sector" },
 			{ selector: ".hero-desktop .intro_layers .intro_layer:eq(2) p", text: "At the heart of the Democratic Republic of the Congo's mining wealth lies the law. Mastering the legal references that govern the Congolese mining sector means understanding the foundations of its governance, regulation and institutional organization. RARSM brings together, in one single compendium, the regulatory acts that shape the sector and makes them easier to read, understand and apply." },
 			{ selector: ".hero-desktop .several-buttons .btn-maincolor", text: "Buy the book" },
@@ -1058,7 +1065,10 @@
 			{ selector: ".section-activities-calendar-block .activities-legend-item:eq(3)", html: "<span class='activities-legend-dot event-media'></span>Development" },
 			{ selector: ".activities-catalogue-header .activities-calendar-label", text: "Illustrated directory" },
 			{ selector: ".activities-catalogue-header h3", text: "All 19 listed activities" },
-			{ selector: ".activities-catalogue-header p", text: "Items marked as pending confirmation remain visible so their next edition can be tracked without presenting them as definitively annual." }
+			{ selector: ".activities-catalogue-header p", text: "Items marked as pending confirmation remain visible so their next edition can be tracked without presenting them as definitively annual." },
+			{ selector: ".activities-region-eyebrow", text: "EXPLORE BY REGION" },
+			{ selector: ".activities-region-heading h4", text: "Choose a geographic area" },
+			{ selector: ".activities-region-filters", attr: { "aria-label": "Filter activities by region" } }
 		],
 		"contact.html": [
 			{ selector: ".page_title .small-title", text: "Contact" },

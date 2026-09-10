@@ -1,0 +1,27 @@
+SIGNATURES RARSM — VERSION APPLE MAIL AUTONOME
+
+Cette version n’a pas besoin que le logo soit déjà hébergé sur rarsm.org.
+Le logo officiel est intégré directement dans chaque signature, mais il a été physiquement réduit à 250 x 65 pixels afin qu’Apple Mail ne puisse plus l’agrandir à sa taille d’origine.
+
+Installation :
+1. Ouvrir la signature HTML correspondante dans Safari.
+2. Sélectionner uniquement la signature affichée.
+3. Copier avec Cmd + C.
+4. Ouvrir Mail > Réglages > Signatures.
+5. Créer/sélectionner la signature du compte.
+6. Désactiver “Toujours utiliser la police par défaut de mon message” si cette option est affichée.
+7. Coller avec Cmd + V.
+8. Créer un nouveau message et vérifier le rendu.
+
+Les boutons “Ajouter à mes contacts” continuent de pointer vers https://www.rarsm.org/contacts/...vcf
+
+AFFICHAGE RESPONSIVE
+
+- Sur ordinateur, la signature conserve sa présentation en deux colonnes.
+- Sur téléphone, le profil et les coordonnées s’empilent automatiquement afin d’éviter les débordements.
+- Les adresses longues peuvent revenir à la ligne et le bouton occupe la largeur disponible.
+
+IMPORTANT APRÈS UNE MISE À JOUR
+
+Une signature déjà enregistrée dans Apple Mail ne se met pas à jour automatiquement.
+Après toute modification de son fichier HTML, supprimez l’ancienne signature dans Mail, puis répétez les étapes d’installation ci-dessus.

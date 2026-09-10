@@ -131,8 +131,17 @@ rarsm_render_page_title('Détail événement', [
                     <div class="activities-detail-side-card activities-institution-card">
                         <span class="activities-calendar-label">Organisateur</span>
                         <div class="activities-institution-head">
-                            <div class="activities-institution-logo">
-                                <?php echo rarsm_e(rarsm_activity_initials($selected['institution']['name'])); ?>
+                            <div class="activities-institution-logo<?php echo !empty($selected['institution']['logo']) ? ' has-image' : ''; ?>">
+                                <?php if (!empty($selected['institution']['logo'])): ?>
+                                    <img
+                                        src="<?php echo rarsm_e($selected['institution']['logo']); ?>"
+                                        alt="<?php echo rarsm_e($selected['institution']['logo_alt'] ?? ('Logo ' . $selected['institution']['name'])); ?>"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+                                <?php else: ?>
+                                    <?php echo rarsm_e(rarsm_activity_initials($selected['institution']['name'])); ?>
+                                <?php endif; ?>
                             </div>
                             <div class="activities-institution-copy">
                                 <h4><?php echo rarsm_e($selected['institution']['full_name']); ?></h4>

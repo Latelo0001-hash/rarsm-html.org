@@ -7,7 +7,11 @@
 	var detailTitle = document.getElementById("activities-detail-title");
 	var detailContainer = document.getElementById("activities-event-detail");
 	var eventList = document.getElementById("activities-event-list");
+	var regionDescription = document.getElementById("activities-region-description");
+	var regionSummary = document.getElementById("activities-region-summary");
+	var regionFilters = document.querySelectorAll("[data-activity-region]");
 	var navButtons = document.querySelectorAll("[data-calendar-nav]");
+	var selectedRegion = "all";
 
 	if (!calendarDays || !calendarWeekdays || !monthSelect || !yearSelect || !currentTitle) {
 		return;
@@ -82,17 +86,42 @@
 	var uiLabels = {
 		fr: {
 			clickHint: "Cliquez pour afficher les détails",
+			touchHint: "Touchez de nouveau pour voir les détails",
 			noActivityTitle: "Aucun événement",
 			noActivityBody: "Aucun rendez-vous annuel n'est programmé pour ce mois pour l'instant. Utilisez les boutons du calendrier pour naviguer vers un autre mois.",
 			viewDetails: "Voir le détail",
-			eventWord: "événement(s)"
+			eventWord: "événement(s)",
+			regionDescription: "Affichez toutes les activités ou concentrez-vous sur une région.",
+			regionEmpty: "Aucune activité n'est encore recensée dans cette région.",
+			regionResultOne: "activité présentée dans cette sélection",
+			regionResultMany: "activités présentées dans cette sélection"
 		},
 		en: {
 			clickHint: "Click to view details",
+			touchHint: "Tap again to view details",
 			noActivityTitle: "No event",
 			noActivityBody: "No annual mining event is scheduled for this month yet. Use the calendar buttons to move to another month.",
 			viewDetails: "View details",
-			eventWord: "event(s)"
+			eventWord: "event(s)",
+			regionDescription: "View all activities or focus on a specific region.",
+			regionEmpty: "No activity has been listed in this region yet.",
+			regionResultOne: "activity shown in this selection",
+			regionResultMany: "activities shown in this selection"
+		}
+	};
+
+	var regionLabels = {
+		fr: {
+			all: "Toutes",
+			drc: "RDC",
+			africa: "Afrique hors RDC",
+			world: "International et autres continents"
+		},
+		en: {
+			all: "All",
+			drc: "DRC",
+			africa: "Africa outside the DRC",
+			world: "International and other continents"
 		}
 	};
 
@@ -499,6 +528,7 @@
 		},
 		{
 			id: "idwim-2026",
+			region: "world",
 			title: "Journée internationale des femmes dans les mines",
 			titleEn: "International Day of Women in Mining",
 			date: "2026-06-15",
@@ -936,12 +966,30 @@
 
 		var hint = document.createElement("span");
 		hint.className = "activities-day-tooltip-hint";
-		hint.textContent = getUiLabel("clickHint");
+		hint.textContent = window.matchMedia && window.matchMedia("(max-width: 767.98px), (pointer: coarse)").matches
+			? getUiLabel("touchHint")
+			: getUiLabel("clickHint");
 		tooltip.appendChild(hint);
 
 		button.appendChild(tooltip);
 
+		button.setAttribute("aria-expanded", "false");
 		button.addEventListener("click", function () {
+			var usesTouchPreview = window.matchMedia && window.matchMedia("(max-width: 767.98px), (pointer: coarse)").matches;
+
+			if (usesTouchPreview && !cell.classList.contains("is-tooltip-open")) {
+				document.querySelectorAll(".activities-calendar-cell.is-tooltip-open").forEach(function (openCell) {
+					openCell.classList.remove("is-tooltip-open");
+					var openButton = openCell.querySelector(".activities-day-button");
+					if (openButton) {
+						openButton.setAttribute("aria-expanded", "false");
+					}
+				});
+				cell.classList.add("is-tooltip-open");
+				button.setAttribute("aria-expanded", "true");
+				return;
+			}
+
 			window.location.href = getEventDetailUrl(eventsForDay[0].id);
 		});
 
@@ -1063,8 +1111,44 @@
 
 		eventList.innerHTML = "";
 
-		sortedEvents.forEach(function (event) {
+		var visibleEvents = sortedEvents.filter(function (event) {
+			return selectedRegion === "all" || (event.region || "drc") === selectedRegion;
+		});
+
+		if (regionDescription) {
+			regionDescription.textContent = getUiLabel("regionDescription");
+		}
+
+		regionFilters.forEach(function (filter) {
+			var region = filter.getAttribute("data-activity-region") || "all";
+			var label = filter.querySelector("span");
+			var count = filter.querySelector("strong");
+			var regionCount = region === "all" ? sortedEvents.length : sortedEvents.filter(function (event) {
+				return (event.region || "drc") === region;
+			}).length;
+
+			if (label) {
+				label.textContent = (regionLabels[getLanguage()] || regionLabels.fr)[region];
+			}
+			if (count) {
+				count.textContent = String(regionCount);
+			}
+
+			var isActive = region === selectedRegion;
+			filter.classList.toggle("is-active", isActive);
+			filter.setAttribute("aria-pressed", isActive ? "true" : "false");
+		});
+
+		if (regionSummary) {
+			regionSummary.textContent = visibleEvents.length
+				? String(visibleEvents.length) + " " + getUiLabel(visibleEvents.length === 1 ? "regionResultOne" : "regionResultMany")
+				: getUiLabel("regionEmpty");
+			regionSummary.classList.toggle("is-empty", visibleEvents.length === 0);
+		}
+
+		visibleEvents.forEach(function (event) {
 			var meta = getCategoryMeta(event.category);
+			var regionLabel = (regionLabels[getLanguage()] || regionLabels.fr)[event.region || "drc"];
 			var item = document.createElement("button");
 			item.type = "button";
 			item.className = "activities-event-list-button";
@@ -1081,6 +1165,7 @@
 				event.imageAlt +
 				'" loading="lazy"></span>' +
 				'<span class="activities-event-list-copy">' +
+				'<span class="activities-event-list-region">' + regionLabel + "</span>" +
 				'<span class="activities-event-list-status status-' +
 				event.verificationStatus +
 				'">' +
@@ -1107,6 +1192,13 @@
 			eventList.appendChild(item);
 		});
 	}
+
+	regionFilters.forEach(function (filter) {
+		filter.addEventListener("click", function () {
+			selectedRegion = filter.getAttribute("data-activity-region") || "all";
+			renderEventList();
+		});
+	});
 
 	monthSelect.addEventListener("change", function () {
 		setView(Number(yearSelect.value), Number(monthSelect.value), true);

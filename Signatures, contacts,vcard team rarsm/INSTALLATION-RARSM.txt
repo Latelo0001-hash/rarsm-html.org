@@ -1,0 +1,17 @@
+PACK RARSM — SIGNATURES 2 COLONNES + VCARDS + QR
+
+Ce pack est prêt à être déposé à la racine du site.
+
+Structure :
+- /contacts/ : fichiers .vcf
+- /signatures/ : signatures HTML de l’équipe
+- /qr-vcard/ : QR codes vCard
+
+Particularités de cette version :
+- logo officiel fourni par le client, en petite taille ;
+- signatures en 2 colonnes sur ordinateur et en 1 colonne sur téléphone ;
+- largeur fluide, textes longs autorisés à revenir à la ligne et bouton adapté aux petits écrans ;
+- bouton “Ajouter à mes contacts” pointant vers /contacts/nom.vcf.
+
+Après mise en ligne, testez par exemple :
+https://www.rarsm.org/contacts/leo-kadima.vcf

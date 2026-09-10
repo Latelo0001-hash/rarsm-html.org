@@ -49,6 +49,8 @@ function rarsm_activity_institutions(): array
         'kbm' => [
             'slug' => 'kbm',
             'name' => 'KBM',
+            'logo' => 'images/activities/organizers/kbm.webp',
+            'logo_alt' => 'Logo Katanga Business Meeting',
             'full_name' => 'Katanga Business Meeting',
             'summary' => "Le Katanga Business Meeting est un forum économique annuel de Kolwezi qui accorde une place importante aux mines, à l’énergie, aux infrastructures et à la sous-traitance.",
             'details_href' => 'https://www.kbm-rdc.com/en',
@@ -77,6 +79,8 @@ function rarsm_activity_institutions(): array
         'makutano' => [
             'slug' => 'makutano',
             'name' => 'Makutano',
+            'logo' => 'images/activities/organizers/makutano.png',
+            'logo_alt' => 'Logo Makutano',
             'full_name' => 'Makutano Forum',
             'summary' => "Le Makutano Forum est un rendez-vous économique annuel. En 2026, l’édition Makutano Mining est consacrée aux minerais critiques et à la souveraineté minière.",
             'details_href' => 'https://www.makutano.cd/forum',
@@ -91,6 +95,8 @@ function rarsm_activity_institutions(): array
         'sarw' => [
             'slug' => 'sarw',
             'name' => 'SARW',
+            'logo' => 'images/activities/organizers/sarw.svg',
+            'logo_alt' => 'Logo Southern Africa Resource Watch',
             'full_name' => 'Southern Africa Resource Watch',
             'summary' => "SARW porte l’Alternative Mining Indaba en RDC afin de faire entendre la voix des communautés affectées par l’exploitation minière.",
             'details_href' => 'https://www.sarwatch.co.za/',
@@ -105,6 +111,8 @@ function rarsm_activity_institutions(): array
         'glencore-rdc' => [
             'slug' => 'glencore-rdc',
             'name' => 'Glencore RDC',
+            'logo' => 'images/activities/organizers/glencore-rdc.svg',
+            'logo_alt' => 'Logo Glencore RDC',
             'full_name' => 'Glencore en République démocratique du Congo',
             'summary' => "Glencore organise à Kinshasa une conférence annuelle consacrée à ses opérations, aux standards miniers et à l’impact local.",
             'details_href' => 'https://www.glencore.cd/fr/news/glencore-hosts-seventh-annual-drc-conference',
@@ -119,6 +127,8 @@ function rarsm_activity_institutions(): array
         'international-wim' => [
             'slug' => 'international-wim',
             'name' => 'IWiM',
+            'logo' => 'images/activities/organizers/international-wim.png',
+            'logo_alt' => 'Logo International Women in Mining',
             'full_name' => 'International Women in Mining',
             'summary' => "International Women in Mining coordonne la Journée internationale des femmes dans les mines, célébrée chaque année le 15 juin.",
             'details_href' => 'https://internationalwim.org/idwim/',
@@ -133,6 +143,8 @@ function rarsm_activity_institutions(): array
         'cdis' => [
             'slug' => 'cdis',
             'name' => 'CDIS',
+            'logo' => 'images/activities/organizers/cdis.png',
+            'logo_alt' => 'Logo Congolese Diaspora Impact Strategies',
             'full_name' => 'Congolese Diaspora Impact Strategies',
             'summary' => "CDIS organise Return to Congo, une mission d’immersion et de connexion entre la diaspora, les investisseurs et les acteurs économiques congolais.",
             'details_href' => 'https://cdiscongo.com/return-to-congo/',
@@ -147,6 +159,8 @@ function rarsm_activity_institutions(): array
         'mining-explore' => [
             'slug' => 'mining-explore',
             'name' => 'Mining Explore',
+            'logo' => 'images/activities/organizers/mining-explore.png',
+            'logo_alt' => 'Logo Mining Explore',
             'full_name' => 'Mining Explore RDC',
             'summary' => "Mining Explore rapproche les étudiants, établissements, entreprises et professionnels autour des métiers et compétences de l’industrie minière.",
             'details_href' => 'https://www.mining-explore.com/',
@@ -161,6 +175,8 @@ function rarsm_activity_institutions(): array
         'wim-drc' => [
             'slug' => 'wim-drc',
             'name' => 'WIM RDC',
+            'logo' => 'images/activities/organizers/wim-drc.jpg',
+            'logo_alt' => 'Logo Women in Mining DRC',
             'full_name' => 'Women in Mining DRC',
             'summary' => "Women in Mining DRC développe des espaces de formation, de plaidoyer et d’action pour les femmes actives dans l’écosystème minier congolais.",
             'details_href' => 'https://wim-drc.com/',
@@ -188,6 +204,8 @@ function rarsm_activity_institutions(): array
         'province-lualaba' => [
             'slug' => 'province-lualaba',
             'name' => 'Lualaba',
+            'logo' => 'images/activities/organizers/province-lualaba.png',
+            'logo_alt' => 'Logo de la Province du Lualaba',
             'full_name' => 'Province du Lualaba',
             'summary' => "La Province du Lualaba a accueilli le Salon minier de 2023 au Centre de négoce de Musompo à Kolwezi.",
             'details_href' => 'https://www.provincelualaba.cd/',
