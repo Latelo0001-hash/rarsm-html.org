@@ -4432,6 +4432,36 @@ button.btn:hover {
 }
 
 /* Promotion automatique de l'activité minière du jour. */
+.preloader {
+	animation: rarsm-preloader-failsafe 0.25s ease 4s forwards;
+}
+
+.home-modern .preloader {
+	display: none !important;
+}
+
+@keyframes rarsm-preloader-failsafe {
+	to {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+}
+
+.rarsm-activity-promo,
+.rarsm-book-video-modal {
+	z-index: 13020;
+}
+
+.modal-backdrop {
+	/* Keep Bootstrap backdrops below every standard modal (z-index: 1050). */
+	z-index: 1040;
+}
+
+.modal-backdrop.show {
+	opacity: 0.58;
+}
+
 .rarsm-activity-promo .modal-dialog {
 	max-width: 820px;
 }
@@ -4542,6 +4572,137 @@ button.btn:hover {
 	}
 }
 
+/* Présentation vidéo de l’ouvrage depuis le hero. */
+.hero-desktop .rarsm-hero-video-btn::before {
+	background: #fff;
+	clip-path: polygon(18% 5%, 95% 50%, 18% 95%);
+	height: 17px;
+	left: 23px;
+	margin: 0;
+	-webkit-mask: none;
+	mask: none;
+	width: 15px;
+}
+
+.hero-desktop .rarsm-hero-video-btn:hover::before,
+.hero-desktop .rarsm-hero-video-btn:focus::before {
+	background: var(--rarsm-blue-deep);
+}
+
+.rarsm-mobile-discover-btn {
+	align-items: center;
+	display: inline-flex;
+	gap: 10px;
+	justify-content: center;
+}
+
+.rarsm-mobile-discover-btn::before {
+	border-bottom: 6px solid transparent;
+	border-left: 10px solid currentColor;
+	border-top: 6px solid transparent;
+	content: "";
+	display: block;
+	flex: 0 0 auto;
+	height: 0;
+	width: 0;
+}
+
+.rarsm-book-video-modal .modal-dialog {
+	max-width: min(1120px, calc(100vw - 40px));
+}
+
+.rarsm-book-video-modal .modal-content {
+	background: #07132b;
+	border: 0;
+	border-radius: 24px;
+	box-shadow: 0 32px 90px rgba(2, 8, 28, 0.5);
+	overflow: hidden;
+}
+
+.rarsm-book-video-modal__header {
+	align-items: center;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	padding: 22px 28px;
+}
+
+.rarsm-book-video-modal__eyebrow {
+	color: var(--rarsm-red);
+	display: block;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.16em;
+	margin-bottom: 4px;
+}
+
+.rarsm-book-video-modal__header h2 {
+	color: var(--rarsm-blue-deep);
+	font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+	line-height: 1.15;
+	margin: 0;
+}
+
+.rarsm-book-video-modal__close {
+	align-items: center;
+	background: #f1f4f8 !important;
+	border-radius: 50%;
+	color: var(--rarsm-blue-deep) !important;
+	display: flex;
+	flex: 0 0 44px;
+	font-size: 1.8rem;
+	height: 44px;
+	justify-content: center;
+	line-height: 1;
+	margin: 0 0 0 20px;
+	opacity: 1;
+	padding: 0 0 3px;
+	text-shadow: none;
+	width: 44px;
+}
+
+.rarsm-book-video-modal__close:hover,
+.rarsm-book-video-modal__close:focus {
+	background: var(--rarsm-red) !important;
+	color: #fff !important;
+}
+
+.rarsm-book-video-modal__media {
+	background: #000;
+	line-height: 0;
+}
+
+.rarsm-book-video-modal__media video {
+	display: block;
+	height: auto;
+	max-height: calc(100vh - 180px);
+	object-fit: contain;
+	width: 100%;
+}
+
+body.modal-open .rarsm-book-video-modal {
+	padding-right: 0 !important;
+}
+
+@media (max-width: 575.98px) {
+	.rarsm-book-video-modal .modal-dialog {
+		margin: 12px;
+		max-width: calc(100vw - 24px);
+	}
+
+	.rarsm-book-video-modal .modal-content {
+		border-radius: 16px;
+	}
+
+	.rarsm-book-video-modal__header {
+		padding: 16px 18px;
+	}
+
+	.rarsm-book-video-modal__media video {
+		max-height: calc(100vh - 125px);
+	}
+}
+
 .section-kicker {
 	align-items: center;
 	color: var(--rarsm-red) !important;
@@ -4577,6 +4738,25 @@ button.btn:hover {
 
 .home-modern .page_slider {
 	margin-top: 0;
+}
+
+body.home-modern,
+.home-modern #canvas,
+.home-modern #box_wrapper {
+	overflow-anchor: none;
+}
+
+@media (min-width: 768px) {
+	.home-modern .hero-desktop,
+	.home-modern .hero-desktop .flexslider,
+	.home-modern .hero-desktop .slides,
+	.home-modern .hero-desktop .slides > li:first-child {
+		min-height: clamp(760px, 92vh, 960px);
+	}
+
+	.home-modern .hero-desktop .slides > li:first-child {
+		display: block;
+	}
 }
 
 .home-modern .page_slider .flexslider .slides li {
@@ -13963,13 +14143,16 @@ main svg {
 	outline: none;
 }
 
-:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+:where(a, button, summary, [tabindex]):focus-visible {
 	outline: 3px solid #fdcd67 !important;
 	outline-offset: 3px !important;
 }
 
 :where(input, select, textarea):focus-visible {
+	border-color: rgba(48, 71, 165, 0.55) !important;
 	box-shadow: 0 0 0 4px rgba(48, 71, 165, 0.2) !important;
+	outline: none !important;
+	outline-offset: 0 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

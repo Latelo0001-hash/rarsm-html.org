@@ -21,7 +21,45 @@
 <link href="favicon.png?v=20260702-favicon" rel="apple-touch-icon"/>
 <link href="css/site.css?v=20260814-theme-v2-recovered" rel="stylesheet"/>
 <link rel="stylesheet" href="css/rarsm-motion.css?v=20260824-content-sequence-v2">
-<link rel="stylesheet" href="css/rarsm.css?v=20260831-organizer-logos-v12">
+<link rel="stylesheet" href="css/rarsm.css?v=20260917-desktop-hero-first-v19">
+<script>
+	(function () {
+		var navigationEntry = window.performance && typeof window.performance.getEntriesByType === "function"
+			? window.performance.getEntriesByType("navigation")[0]
+			: null;
+		var isReload = navigationEntry
+			? navigationEntry.type === "reload"
+			: window.performance && window.performance.navigation
+				? window.performance.navigation.type === 1
+				: false;
+		var mustShowHero = isReload || !window.location.hash;
+
+		if ("scrollRestoration" in history) {
+			history.scrollRestoration = "manual";
+		}
+
+		if (isReload && window.location.hash) {
+			history.replaceState(null, document.title, window.location.pathname + window.location.search);
+		}
+
+		function showHero() {
+			if (!mustShowHero) {
+				return;
+			}
+			window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+		}
+
+		showHero();
+		window.addEventListener("pageshow", function () {
+			window.requestAnimationFrame(showHero);
+			window.setTimeout(showHero, 150);
+		});
+		window.addEventListener("load", function () {
+			showHero();
+			window.setTimeout(showHero, 350);
+		}, { once: true });
+	}());
+</script>
 <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, "js");</script>
 <!--[if lt IE 9]>
 		<script src="js/vendor/html5shiv.min.js"></script>
@@ -140,6 +178,27 @@
 <p data-activity-promo-summary></p>
 <p class="rarsm-activity-promo__more" data-activity-promo-more></p>
 <a class="btn btn-maincolor" data-activity-promo-link href="activites.html"><span data-activity-promo-details>Voir les détails</span></a>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade rarsm-book-video-modal" id="bookPresentationVideoModal" tabindex="-1" role="dialog" aria-labelledby="bookPresentationVideoTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+<div class="modal-content">
+<div class="rarsm-book-video-modal__header">
+<div>
+<span class="rarsm-book-video-modal__eyebrow">RARSM EN VIDÉO</span>
+<h2 id="bookPresentationVideoTitle">Présentation de l’ouvrage</h2>
+</div>
+<button type="button" class="close rarsm-book-video-modal__close" data-dismiss="modal" aria-label="Fermer la vidéo">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="rarsm-book-video-modal__media">
+<video controls playsinline preload="metadata" poster="images/rarsm-generated/hero-presentation-rarsm.webp" data-book-presentation-video>
+<source src="images/rarsm-presentation-ouvrage.mp4" type="video/mp4">
+Votre navigateur ne prend pas en charge la lecture de cette vidéo.
+</video>
 </div>
 </div>
 </div>
@@ -297,7 +356,7 @@
 		</div>
 		<div class="rarsm-mobile-actions">
 			<a class="rarsm-mobile-buy-btn" href="pricing.html">Acheter l’ouvrage</a>
-			<a class="rarsm-mobile-discover-btn" href="book.html">Découvrir le livre</a>
+			<a class="rarsm-mobile-discover-btn" href="#bookPresentationVideoModal" data-toggle="modal" role="button" aria-haspopup="dialog">Voir la présentation</a>
 			<p class="rarsm-mobile-meta"><span>Français · English</span><span>Secteur minier · RDC</span></p>
 		</div>
 	</div>
@@ -327,7 +386,7 @@
 											</div>
 											<div class="intro_layer several-buttons" data-animation="fadeInUp">
 												<a class="btn btn-maincolor" href="pricing.html">Acheter l’ouvrage</a>
-												<a class="photoswipe-link-button" href="book.html">
+												<a class="photoswipe-link-button rarsm-hero-video-btn" href="#bookPresentationVideoModal" data-toggle="modal" role="button" aria-haspopup="dialog">
 												<span>Présentation de l'ouvrage</span>
 												</a>
 											</div>
@@ -356,7 +415,7 @@
 							<div class="divider-xl-150"></div>
 					</div>
 					<div class="col-lg-6 d-flex align-items-center justify-content-center">
-						<img alt="Jean-Baptiste Otshudi Disashi Kalonda" class="author-photo" decoding="async" loading="lazy" src="images/avatar-jbo.png"/>
+						<img alt="Jean-Baptiste Otshudi Disashi Kalonda" class="author-photo" decoding="async" loading="lazy" src="images/avatar-officiel.png"/>
 					</div>
 				</div>
 			</div>
@@ -952,9 +1011,10 @@
 </div><!-- eof #box_wrapper -->
 </div><!-- eof #canvas -->
 <script defer src="js/compressed.js?v=20260821-vendor-v2"></script>
-<script defer src="js/rarsm-i18n.js?v=20260831-mobile-hero-en-v2"></script>
+<script defer src="js/rarsm-i18n.js?v=20260911-book-video-v3"></script>
 <script defer src="js/rarsm-motion.js?v=20260824-content-sequence-v2"></script>
 <script defer src="js/rarsm-ui.js?v=20260821-password-min-v1"></script>
-<script defer src="js/activity-promo.js?v=20260824-v1"></script>
+<script defer src="js/activity-promo.js?v=20260917-hero-first-v3"></script>
+<script defer src="js/book-video-modal.js?v=20260911-v1"></script>
 </body>
 </html>

@@ -10,6 +10,18 @@
 	var previewDate = params.get("activity_preview");
 	var endpoint = "api/activity-today.php" + (previewDate ? "?date=" + encodeURIComponent(previewDate) : "");
 
+	function cleanupOrphanBackdrop() {
+		if (document.querySelector(".modal.show")) {
+			return;
+		}
+
+		Array.prototype.forEach.call(document.querySelectorAll(".modal-backdrop"), function (backdrop) {
+			backdrop.parentNode.removeChild(backdrop);
+		});
+		document.body.classList.remove("modal-open");
+		document.body.style.removeProperty("padding-right");
+	}
+
 	function language() {
 		return window.localStorage.getItem("rarsm-language") === "en" ? "en" : "fr";
 	}
@@ -77,7 +89,25 @@
 		}
 
 		if (window.jQuery && typeof window.jQuery.fn.modal === "function") {
-			window.jQuery(modal).modal("show");
+			var $modal = window.jQuery(modal);
+			window.setTimeout(function () {
+				try {
+					$modal
+						.off("hidden.bs.modal.rarsmPromo")
+						.on("hidden.bs.modal.rarsmPromo", cleanupOrphanBackdrop)
+						.modal("show");
+				} catch (error) {
+					cleanupOrphanBackdrop();
+					return;
+				}
+
+				window.setTimeout(function () {
+					if (!modal.classList.contains("show")) {
+						$modal.modal("hide");
+						cleanupOrphanBackdrop();
+					}
+				}, 1200);
+			}, previewDate ? 0 : 1400);
 		}
 	}
 
@@ -95,5 +125,6 @@
 		})
 		.catch(function () {
 			// The homepage remains fully usable if PHP or the API is unavailable.
+			cleanupOrphanBackdrop();
 		});
 }(window, document));
