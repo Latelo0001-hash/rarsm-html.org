@@ -4785,7 +4785,7 @@ body.home-modern,
 	width: min(100%, 480px);
 }
 
-.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) {
 	background: transparent;
 	border: 0;
 	box-shadow: none;
@@ -4795,7 +4795,7 @@ body.home-modern,
 	width: min(100%, 520px);
 }
 
-.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) img {
 	display: block;
 	height: auto;
 	max-height: none;
@@ -5637,12 +5637,12 @@ body.home-modern,
 		width: min(100%, 280px);
 	}
 
-	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+	.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) {
 		margin-bottom: 0;
 		width: min(100%, 320px);
 	}
 
-	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+	.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) img {
 		transform: none;
 	}
 
@@ -5778,12 +5778,12 @@ body.home-modern,
 		width: min(100%, 230px);
 	}
 
-	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) {
+	.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) {
 		padding: 0;
 		width: min(100%, 230px);
 	}
 
-	.home-modern .page_slider .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+	.home-modern .page_slider .img-layer:has(.rarsm-hero-book-cover) img {
 		transform: none;
 	}
 
@@ -8716,7 +8716,7 @@ body,
 		z-index: 4;
 	}
 
-	.hero-desktop .img-layer:has(img[src*="rarsm-book-home-hero-3d"]) img {
+	.hero-desktop .img-layer:has(.rarsm-hero-book-cover) img {
 		filter: drop-shadow(0 28px 30px rgba(3, 8, 34, 0.38));
 	}
 }

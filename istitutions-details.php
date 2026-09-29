@@ -603,7 +603,7 @@ foreach ($institutions as $slug => $institution) {
 													<ul class="woocommerce-mini-cart cart_list product_list_widget">
 														<li class="woocommerce-mini-cart-item mini_cart_item">
 															<a aria-label="Retirer cet article" class="remove" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT" href="#">×</a>
-															<a href="shop-cart.php"><img alt="Ouvrage RARSM" src="images/view-rarsm.JPG"></a>
+																	<a href="shop-cart.php"><img alt="Ouvrage RARSM" src="images/view-rarsm.JPG?v=20260922-corrected-cover-v2"></a>
 															<a href="shop-cart.php">RARSM - Edition papier</a>
 															<span class="quantity">0 ×
 																<span class="woocommerce-Price-amount amount">
@@ -654,7 +654,7 @@ foreach ($institutions as $slug => $institution) {
 												<ul class="woocommerce-mini-cart cart_list product_list_widget">
 													<li class="woocommerce-mini-cart-item mini_cart_item">
 														<a href="#" class="remove" aria-label="Retirer cet article" data-product_id="rarsm-book" data-product_sku="RARSM-PRINT">×</a>
-														<a href="shop-cart.php"><img src="images/view-rarsm.JPG" alt="Ouvrage RARSM"></a>
+															<a href="shop-cart.php"><img src="images/view-rarsm.JPG?v=20260922-corrected-cover-v2" alt="Ouvrage RARSM"></a>
 														<a href="shop-cart.php">RARSM - Edition papier</a>
 														<span class="quantity">0 ×
 															<span class="woocommerce-Price-amount amount">

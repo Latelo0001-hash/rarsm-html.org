@@ -27951,7 +27951,7 @@ img.absolute_image {
 }
 
 .section-amazon {
-	--section-amazon-background: url("../images/bg-section-valeur-ajoutee-rarsm-v3.png");
+	--section-amazon-background: url("../images/bg-section-valeur-ajoutee-rarsm-v3.png?v=20260922-corrected-cover-v3");
 	background: var(--section-amazon-background) no-repeat center/cover;
 }
 

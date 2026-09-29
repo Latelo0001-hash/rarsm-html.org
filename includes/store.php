@@ -13,7 +13,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp',
+            'image' => 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp?v=20260922-corrected-cover-v2',
 			'short_description' => 'L’exemplaire physique du recueil pour les cabinets, les institutions et les bibliothèques.',
         ],
         'rarsm-digital' => [
@@ -25,7 +25,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => false,
             'requires_shipping' => false,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-digital-official.webp',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-digital-official.webp?v=20260922-corrected-cover-v3',
 			'short_description' => 'Le format numérique pour une consultation rapide sur ordinateur, tablette ou smartphone.',
         ],
         'rarsm-institutional' => [
@@ -37,7 +37,7 @@ function rarsm_store_catalog(): array
             'currency' => 'USD',
             'quote_only' => true,
             'requires_shipping' => true,
-            'image' => 'images/rarsm-generated/shop-products/rarsm-institutional-official.webp',
+            'image' => 'images/rarsm-generated/shop-products/rarsm-institutional-official.webp?v=20260922-corrected-cover-v3',
 			'short_description' => 'Une demande groupée avec devis, facture pro forma ou bon de commande.',
         ],
         'rarsm-tshirt' => [
@@ -735,7 +735,7 @@ function rarsm_store_fetch_order_items_from_db(int $orderId, string $currency): 
                 'id' => $localProductId ?? (string) ($row['sku'] ?? ''),
                 'sku' => (string) ($row['sku'] ?? ''),
                 'name' => (string) ($row['product_name'] ?? ''),
-                'image' => (string) ($catalogProduct['image'] ?? $row['cover_image'] ?? 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp'),
+                'image' => (string) ($catalogProduct['image'] ?? $row['cover_image'] ?? 'images/rarsm-generated/book-cover/rarsm-cover-front-2d.webp?v=20260922-corrected-cover-v2'),
                 'price' => (float) ($row['unit_price'] ?? 0),
                 'currency' => $currency,
                 'quantity' => (int) ($row['quantity'] ?? 0),

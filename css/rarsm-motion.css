@@ -1,21 +1,21 @@
 /* Animations RARSM, séparées du thème historique. */
 .rarsm-motion-item {
 	opacity: 0;
-	transform: translate3d(0, 44px, 0);
-	transition: opacity 800ms cubic-bezier(.22, 1, .36, 1), transform 800ms cubic-bezier(.22, 1, .36, 1);
+	transform: translate3d(0, 28px, 0);
+	transition: opacity 600ms cubic-bezier(.22, 1, .36, 1), transform 600ms cubic-bezier(.22, 1, .36, 1);
 	transition-delay: var(--motion-delay, 0ms);
 }
 
 .rarsm-motion-item.motion-from-left {
-	transform: translate3d(-54px, 0, 0);
+	transform: translate3d(-32px, 0, 0);
 }
 
 .rarsm-motion-item.motion-from-right {
-	transform: translate3d(54px, 0, 0);
+	transform: translate3d(32px, 0, 0);
 }
 
 .rarsm-motion-item.motion-scale {
-	transform: translate3d(0, 24px, 0) scale(.94);
+	transform: translate3d(0, 18px, 0) scale(.98);
 }
 
 .rarsm-motion-item.motion-visible {
@@ -49,13 +49,20 @@
 
 .rarsm-mobile-book-img,
 .hero-desktop .img-layer img {
-	animation: rarsm-book-float 4.8s ease-in-out 1s infinite;
+	animation: rarsm-book-float 4.8s ease-in-out 1s 2;
 	filter: drop-shadow(0 22px 22px rgba(5, 18, 62, .18));
 }
 
 @keyframes rarsm-hero-entry {
 	from { opacity: 0; transform: translate3d(0, 32px, 0) scale(.985); }
 	to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@media (max-width: 767.98px) {
+	.rarsm-mobile-book-img,
+	.hero-desktop .img-layer img {
+		animation: none;
+	}
 }
 
 @keyframes rarsm-book-float {
